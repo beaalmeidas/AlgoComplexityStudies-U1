@@ -52,13 +52,52 @@ int** auto_matrix_generator(int *rows, int *columns) {
 }
 
 
+void show_array(int* array, int length) {
+    printf("\n");
+    printf("ARRAY = (");
+    for (int i = 0; i < length; i++) {
+        printf("%d", array[i]);
+
+        if (i != (length - 1)) {
+            printf(", ");
+        }
+    }
+
+    printf(")");
+    printf("\n\n");
+}
+
+
+int* auto_array_generator(int *length) {
+    printf("\nHow many long do you want the array to be?: ");
+    scanf("%d", length);
+
+    int* array = malloc(sizeof(length));
+    for (int i = 0; i < *length; i++) {
+        array[i] = rng();
+    }
+
+    return array;
+}
+
+
+void clear_screen() {
+    printf("\e[1;1H\e[2J");
+}
+
+
 int main() {
     srand(time(NULL));
-    int rows, columns;
+    int rows, columns, length;
 
-    int num = rng();
-    printf("\n\nGenerated random number = %d\n\n", num);
+    // int num = rng();
+    // printf("\n\nGenerated random number = %d\n\n", num);
 
-    int ** matrix = auto_matrix_generator(&rows, &columns);
-    show_matrix(matrix, rows, columns);
+    // int ** matrix = auto_matrix_generator(&rows, &columns);
+    // show_matrix(matrix, rows, columns);
+
+    // int * array = auto_array_generator(&length);
+    // show_array(array, length);
+
+    
 }

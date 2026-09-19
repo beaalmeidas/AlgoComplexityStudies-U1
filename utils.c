@@ -91,13 +91,21 @@ int** matrix_starter(int *rows, int *columns) {
 }
 
 
-int* auto_array_generator(int *length) {
-    printf("\nHow many long do you want the array to be?: ");
-    scanf("%d", length);
-
-    int* array = malloc(*length * sizeof(int));
-    for (int i = 0; i < *length; i++) {
+int* auto_array_generator(int length) {
+    int* array = malloc(length * sizeof(int));
+    for (int i = 0; i < length; i++) {
         array[i] = rng();
+    }
+
+    return array;
+}
+
+
+int* input_array_generator(int length) {
+    int* array = malloc(length * sizeof(int));
+    for (int i = 0; i < length; i++) {
+        printf("Element [%d]: ", (i+1));
+        scanf("%d", &array[i]);
     }
 
     return array;
@@ -120,6 +128,31 @@ void show_array(int* array, int length) {
 }
 
 
+int* array_starter(int *length) {
+    int choice;
+
+    do {
+        printf("\nWould you like to create your array automatically or manually?");
+        printf("\n(1) Automatically / (2) Manually: ");
+        scanf("%d", &choice);
+
+        if (choice != 1 && choice != 2) {
+            printf("\nInvalid option! Please choose 1 or 2.\n");
+        }
+    } while (choice != 1 && choice != 2);
+
+    printf("\nHow long do you want the array to be?: ");
+    scanf("%d", length);
+
+    switch (choice) {
+        case 1:
+            return auto_array_generator(*length);
+        case 2:
+            return input_array_generator(*length);
+    }
+}
+
+
 void clear_screen() {
     printf("\e[1;1H\e[2J");
 }
@@ -138,6 +171,9 @@ int main() {
     // int * array = auto_array_generator(&length);
     // show_array(array, length);
 
-    int** matrix = matrix_starter(&rows, &columns);
-    show_matrix(matrix, rows, columns);
+    // int** matrix = matrix_starter(&rows, &columns);
+    // show_matrix(matrix, rows, columns);
+
+    int* array = array_starter(&length);
+    show_array(array, length);
 }

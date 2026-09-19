@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int main() {
     int choice;
 
@@ -8,7 +9,7 @@ int main() {
         printf("  /====================================================\\\n");
         printf(" ||                   FUNCTIONS MENU                   ||\n");
         printf(" ||      (Algorithms Computability and Complexity)     ||\n");
-        printf("  \\===================================================/\n");
+        printf("  \\====================================================/\n");
         printf("\n\t\t     Select a function to try!\t\t");
         printf("\n------------------------------------------------------------------");
         printf("\nFunction 1: Counting Distinct Occurrences");

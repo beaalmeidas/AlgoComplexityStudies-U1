@@ -9,11 +9,42 @@ int rng() {
 }
 
 
+int** auto_matrix_generator(int rows, int columns) {
+    int** matrix = malloc(rows * sizeof(int));
+    for (int i = 0; i < rows; i++) {    
+        matrix[i] = malloc(columns * sizeof(int));
+
+        for (int j = 0; j < columns; j++) {
+            matrix[i][j] = rng();
+        }
+    }
+
+    return matrix;
+}
+
+
+int** input_matrix_generator(int rows, int columns) {
+    int** matrix = malloc(rows * sizeof(int));
+
+    printf("\n");
+    for (int i = 0; i < rows; i++) {    
+        matrix[i] = malloc(columns * sizeof(int));
+
+        for (int j = 0; j < columns; j++) {
+            printf("Element [%d][%d]: ", (i+1), (j+1));
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    return matrix;
+}
+
+
 void show_matrix(int** matrix, int rows, int columns) {
     int r = rows;
     int c = columns;
 
-    printf("\n\nMatrix auto-generated succesfully!\n");
+    printf("\nMATRIX = ");
 
     for (int i = 0; i < r; i++) {
         printf("\n");
@@ -33,22 +64,43 @@ void show_matrix(int** matrix, int rows, int columns) {
 }
 
 
-int** auto_matrix_generator(int *rows, int *columns) {
+int** matrix_starter(int *rows, int *columns) {
+    int choice;
+
+    do {
+        printf("\nWould you like to create your matrix automatically or manually?");
+        printf("\n(1) Automatically / (2) Manually: ");
+        scanf("%d", &choice);
+
+        if (choice != 1 && choice != 2) {
+            printf("\nInvalid option! Please choose 1 or 2.\n");
+        }
+    } while (choice != 1 && choice != 2);
+
     printf("\nHow many ROWS should the matrix have?: ");
     scanf("%d", rows);
-    printf("\nHow many COLUMNS should the matrix have?: ");
+    printf("How many COLUMNS should the matrix have?: ");
     scanf("%d", columns);
 
-    int** matrix = malloc(*rows * sizeof(int*));
-    for (int i = 0; i < *rows; i++) {    
-        matrix[i] = malloc(*columns * sizeof(int*));
+    switch (choice) {
+        case 1:
+            return auto_matrix_generator(*rows, *columns);
+        case 2:
+            return input_matrix_generator(*rows, *columns);
+    }
+}
 
-        for (int j = 0; j < *columns; j++) {
-            matrix[i][j] = rng();
-        }
+
+int* auto_array_generator(int *length) {
+    printf("\nHow many long do you want the array to be?: ");
+    scanf("%d", length);
+
+    int* array = malloc(*length * sizeof(int));
+    for (int i = 0; i < *length; i++) {
+        array[i] = rng();
     }
 
-    return matrix;
+    return array;
 }
 
 
@@ -65,19 +117,6 @@ void show_array(int* array, int length) {
 
     printf(")");
     printf("\n\n");
-}
-
-
-int* auto_array_generator(int *length) {
-    printf("\nHow many long do you want the array to be?: ");
-    scanf("%d", length);
-
-    int* array = malloc(sizeof(length));
-    for (int i = 0; i < *length; i++) {
-        array[i] = rng();
-    }
-
-    return array;
 }
 
 
@@ -99,5 +138,6 @@ int main() {
     // int * array = auto_array_generator(&length);
     // show_array(array, length);
 
-    
+    int** matrix = matrix_starter(&rows, &columns);
+    show_matrix(matrix, rows, columns);
 }

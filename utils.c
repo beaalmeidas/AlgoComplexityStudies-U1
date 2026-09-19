@@ -4,7 +4,6 @@
 
 
 int rng() {
-    srand(time(NULL));
     int random_num = rand() % 100;
     return random_num;
 }
@@ -14,27 +13,37 @@ void show_matrix(int** matrix, int rows, int columns) {
     int r = rows;
     int c = columns;
 
+    printf("\n\nMatrix auto-generated succesfully!\n");
+
     for (int i = 0; i < r; i++) {
+        printf("\n");
+        printf("(");
+
         for (int j = 0; j < c; j++) {
-            printf("%d\t", matrix[i][j]);
+            printf("%d", matrix[i][j]);
+
+            if (j != (c - 1)) {
+                printf("\t");
+            }
         }
+
+        printf(")");
+        printf("\n\n");
     }
 }
 
 
-int** create_matrix() {
-    int rows, columns;
+int** auto_matrix_generator(int *rows, int *columns) {
+    printf("\nHow many ROWS should the matrix have?: ");
+    scanf("%d", rows);
+    printf("\nHow many COLUMNS should the matrix have?: ");
+    scanf("%d", columns);
 
-    printf("\n\nHow many ROWS should the matrix have?: ");
-    scanf("%d", &rows);
-    printf("\n\nHow many COLUMNS should the matrix have?: ");
-    scanf("%d", &columns);
+    int** matrix = malloc(*rows * sizeof(int*));
+    for (int i = 0; i < *rows; i++) {    
+        matrix[i] = malloc(*columns * sizeof(int*));
 
-    int** matrix = malloc(rows * sizeof(int*));
-    for (int i = 0; i < rows; i++) {    
-        matrix[i] = malloc(columns * sizeof(int*));
-
-        for (int j = 0; j < columns; j++) {
+        for (int j = 0; j < *columns; j++) {
             matrix[i][j] = rng();
         }
     }
@@ -44,9 +53,12 @@ int** create_matrix() {
 
 
 int main() {
+    srand(time(NULL));
+    int rows, columns;
+
     int num = rng();
     printf("\n\nGenerated random number = %d\n\n", num);
 
-    int ** matrix = create_matrix();
-    show_matrix(matrix);
+    int ** matrix = auto_matrix_generator(&rows, &columns);
+    show_matrix(matrix, rows, columns);
 }

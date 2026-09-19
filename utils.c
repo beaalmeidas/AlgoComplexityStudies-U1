@@ -176,4 +176,6 @@ int main() {
 
     int* array = array_starter(&length);
     show_array(array, length);
+
+    free(array);
 }

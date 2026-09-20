@@ -158,24 +158,24 @@ void clear_screen() {
 }
 
 
-int main() {
-    srand(time(NULL));
-    int rows, columns, length;
+// int main() {
+//     srand(time(NULL));
+//     int rows, columns, length;
 
-    // int num = rng();
-    // printf("\n\nGenerated random number = %d\n\n", num);
+//     // int num = rng();
+//     // printf("\n\nGenerated random number = %d\n\n", num);
 
-    // int ** matrix = auto_matrix_generator(&rows, &columns);
-    // show_matrix(matrix, rows, columns);
+//     // int ** matrix = auto_matrix_generator(&rows, &columns);
+//     // show_matrix(matrix, rows, columns);
 
-    // int * array = auto_array_generator(&length);
-    // show_array(array, length);
+//     // int * array = auto_array_generator(&length);
+//     // show_array(array, length);
 
-    // int** matrix = matrix_starter(&rows, &columns);
-    // show_matrix(matrix, rows, columns);
+//     // int** matrix = matrix_starter(&rows, &columns);
+//     // show_matrix(matrix, rows, columns);
 
-    int* array = array_starter(&length);
-    show_array(array, length);
+//     int* array = array_starter(&length);
+//     show_array(array, length);
 
-    free(array);
-}
+//     free(array);
+// }

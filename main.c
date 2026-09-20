@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include "functions.h"
+#include "utils.h"
+#include <conio.h>
 
 
 int main() {
@@ -12,11 +15,11 @@ int main() {
         printf("  \\====================================================/\n");
         printf("\n\t\t     Select a function to try!\t\t");
         printf("\n------------------------------------------------------------------");
-        printf("\nFunction 1: Counting Distinct Occurrences");
-        printf("\nFunction 2: Pair Analysis in a Triangular Matrix");
-        printf("\nFunction 3: Three-Dimensional Matrices Comparison");
-        printf("\nFunction 4: Analysis of Asymmetric Cases in Conditional Statements");
-        printf("\nFunction 5: Counting Elements Present in a Sorted Array");
+        printf("\n(1) Function 1: Counting Distinct Occurrences");
+        printf("\n(2) Function 2: Pair Analysis in a Triangular Matrix");
+        printf("\n(3) Function 3: Three-Dimensional Matrices Comparison");
+        printf("\n(4) Function 4: Analysis of Asymmetric Cases in Conditional Statements");
+        printf("\n(5) Function 5: Counting Elements Present in a Sorted Array");
         printf("\n(6) Quit");
         printf("\n\n");
 
@@ -25,33 +28,62 @@ int main() {
 
         switch (choice) {
             case 1:
-                //aaaaaaaaaaaa
-                printf("\n1");
+                clear_screen();
+                printf("\n+-------------------------------------------+");
+                printf("\n| Function 1: Counting Distinct Occurrences |");
+                printf("\n+-------------------------------------------+\n");
+
+                count_distinct_occurrences();
+                printf("\n\nPress any key to go back to menu.");
+                _getch();
+                clear_screen();
+
                 break;
             case 2:
-                //aaaaaaaaaaaa
+                clear_screen();
+                printf("\n+--------------------------------------------------+");
+                printf("\n| Function 2: Pair Analysis in a Triangular Matrix |");
+                printf("\n+--------------------------------------------------+\n");
+
                 printf("\n2");
+
                 break;
             case 3:
+                clear_screen();
+                printf("\n+---------------------------------------------------+");
+                printf("\n| Function 3: Three-Dimensional Matrices Comparison |");
+                printf("\n+---------------------------------------------------+\n");
+
                 //aaaaaaaaaaaa
-                printf("\n3");
+
                 break;
             case 4:
+                clear_screen();
+                printf("\n+--------------------------------------------------------------------+");
+                printf("\n| Function 4: Analysis of Asymmetric Cases in Conditional Statements |");
+                printf("\n+--------------------------------------------------------------------+\n");
+
                 //aaaaaaaaaaaa
-                printf("\n4");
+
                 break;
             case 5:
+                clear_screen();
+                printf("\n+---------------------------------------------------------+");
+                printf("\n| Function 5: Counting Elements Present in a Sorted Array |");
+                printf("\n+---------------------------------------------------------+\n");
+
                 //aaaaaaaaaaaa
-                printf("\n5");
+
                 break;
             case 6:
-                printf("\nLeaving program...\n\n");
+                clear_screen();
+                printf("\nLeaving program... Goodbye!\n\n");
                 return 0;
             default:
-                printf("Invalid option! Please try again.");
+                printf("\nInvalid option! Please try again.");
         }
 
-    } while (choice =! 6);
+    } while (choice != 6);
 
     return 0;
 }

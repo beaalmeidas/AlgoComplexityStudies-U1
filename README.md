@@ -25,8 +25,8 @@ gcc main.c functions.c utils.c -o program.exe
 
 ---
 ## Authorship
-Beatriz Almeida de Souza Silva
-José Carlos de Oliveira Neto
-Rigel Sales de Souza
-Gabriel Bianchini
+Beatriz Almeida de Souza Silva<br/>
+José Carlos de Oliveira Neto<br/>
+Rigel Sales de Souza<br/>
+Gabriel Bianchini<br/>
 Lucas Amorim

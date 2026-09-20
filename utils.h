@@ -15,5 +15,6 @@ void show_array(int* array, int length);
 int* array_starter(int *length);
 
 void clear_screen();
+void back_to_menu();
 
 #endif

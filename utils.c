@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <conio.h>
 
 
 int rng() {
@@ -10,7 +11,7 @@ int rng() {
 
 
 int** auto_matrix_generator(int rows, int columns) {
-    int** matrix = malloc(rows * sizeof(int));
+    int** matrix = malloc(rows * sizeof(int*));
     for (int i = 0; i < rows; i++) {    
         matrix[i] = malloc(columns * sizeof(int));
 
@@ -24,7 +25,7 @@ int** auto_matrix_generator(int rows, int columns) {
 
 
 int** input_matrix_generator(int rows, int columns) {
-    int** matrix = malloc(rows * sizeof(int));
+    int** matrix = malloc(rows * sizeof(int*));
 
     printf("\n");
     for (int i = 0; i < rows; i++) {    
@@ -179,6 +180,13 @@ void clear_screen() {
 }
 
 
+void back_to_menu() {
+    printf("\n\nPress any key to go back to menu.");
+    _getch();
+    clear_screen();
+}
+
+
 // int main() {
 //     srand(time(NULL));
 //     int rows, columns, length;
@@ -198,5 +206,5 @@ void clear_screen() {
 //     int* array = array_starter(&length);
 //     show_array(array, length);
 
-//     free(array);
+//     free();
 // }

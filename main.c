@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "functions.h"
 #include "utils.h"
-#include <conio.h>
 
 
 int main() {
@@ -34,9 +33,7 @@ int main() {
                 printf("\n+-------------------------------------------+\n");
 
                 count_distinct_occurrences();
-                printf("\n\nPress any key to go back to menu.");
-                _getch();
-                clear_screen();
+                back_to_menu();
 
                 break;
             case 2:
@@ -45,7 +42,8 @@ int main() {
                 printf("\n| Function 2: Pair Analysis in a Triangular Matrix |");
                 printf("\n+--------------------------------------------------+\n");
 
-                printf("\n2");
+                matrix_pair_analysis();
+                back_to_menu();
 
                 break;
             case 3:

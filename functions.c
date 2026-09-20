@@ -27,6 +27,7 @@ void count_distinct_occurrences() {
     printf("\n+--------------------------+");
     printf("\n| %d occurrences           ", occurrences);
     printf("\n+--------------------------+\n");
+    printf("\n");
 
     free(original_array);
     free(search_array);
@@ -36,7 +37,26 @@ void count_distinct_occurrences() {
 //FUNCTION 2
 void matrix_pair_analysis() {
     int n;
-    int total = 0;
+    int counter = 0;
 
-    int** matrix = matrix_starter(n, n);
+    int** matrix = matrix_starter(&n, &n);
+    show_matrix(matrix, n, n);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+        //for (int j = 0; j < n; j++) {
+            if ((matrix[i][j] + matrix[j][i]) % 5 == 0) {
+                counter++;
+            }
+        }
+    }
+
+    printf("\n--- FUNCTION 2 ANSWER ---");
+    printf("\nNumber of triangular opposites with (A + B % 5 = 0) in the matrix:");
+    printf("\n+--------------------------+");
+    printf("\n| %d pairs           ", counter);
+    printf("\n+--------------------------+\n");
+    printf("\n");
+
+    free(matrix);
 }

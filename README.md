@@ -1,4 +1,4 @@
-# AlgorithmComplexity-U1
+# Algorithm Computability and Complexity U1 project
 Algorithm Computability and Complexity class unit 1 project.<br/>
 Implementing functions to analyze their Big O.
 <br/>

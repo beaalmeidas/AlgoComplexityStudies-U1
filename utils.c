@@ -65,29 +65,50 @@ void show_matrix(int** matrix, int rows, int columns) {
 
 
 int** matrix_starter(int *rows, int *columns) {
-    int choice;
+    int matrix_shape;
+    int generation_type;
+
+    do {
+        printf("\nWhat type of matrix would you like to create?");
+        printf("\n(1) Square / (2) Rectangular: ");
+        scanf("%d", &matrix_shape);
+
+        if (matrix_shape != 1 && matrix_shape != 2) {
+            printf("\nInvalid option! Please choose 1 or 2.\n");
+        }
+    } while (matrix_shape != 1 && matrix_shape != 2);
+
+    if (matrix_shape == 1) {
+        printf("\nWhat size should the square matrix have?: ");
+        scanf("%d", rows);
+
+        *columns = *rows;
+    } else {
+        printf("\nHow many ROWS should the matrix have?: ");
+        scanf("%d", rows);
+
+        printf("How many COLUMNS should the matrix have?: ");
+        scanf("%d", columns);
+    }
 
     do {
         printf("\nWould you like to create your matrix automatically or manually?");
         printf("\n(1) Automatically / (2) Manually: ");
-        scanf("%d", &choice);
+        scanf("%d", &generation_type);
 
-        if (choice != 1 && choice != 2) {
+        if (generation_type != 1 && generation_type != 2) {
             printf("\nInvalid option! Please choose 1 or 2.\n");
         }
-    } while (choice != 1 && choice != 2);
+    } while (generation_type != 1 && generation_type != 2);
 
-    printf("\nHow many ROWS should the matrix have?: ");
-    scanf("%d", rows);
-    printf("How many COLUMNS should the matrix have?: ");
-    scanf("%d", columns);
-
-    switch (choice) {
+    switch (generation_type) {
         case 1:
             return auto_matrix_generator(*rows, *columns);
         case 2:
             return input_matrix_generator(*rows, *columns);
     }
+
+    return NULL;
 }
 
 

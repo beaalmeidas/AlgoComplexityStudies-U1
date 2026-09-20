@@ -31,3 +31,12 @@ void count_distinct_occurrences() {
     free(original_array);
     free(search_array);
 }
+
+
+//FUNCTION 2
+void matrix_pair_analysis() {
+    int n;
+    int total = 0;
+
+    int** matrix = matrix_starter(n, n);
+}

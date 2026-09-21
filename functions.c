@@ -60,3 +60,9 @@ void matrix_pair_analysis() {
 
     free(matrix);
 }
+
+
+//FUNCTION 3
+void matrixes_comparison() {
+    
+}

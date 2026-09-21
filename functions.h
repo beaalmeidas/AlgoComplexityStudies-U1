@@ -3,5 +3,6 @@
 
 void count_distinct_occurrences();
 void matrix_pair_analysis();
+void matrixes_comparison();
 
 #endif

@@ -113,6 +113,111 @@ int** matrix_starter(int *rows, int *columns) {
 }
 
 
+int*** auto_3d_matrix_generator(int n) {
+    int*** matrix = malloc(n * sizeof(int**));
+
+    for (int i = 0; i < n; i++) {
+        matrix[i] = malloc(n * sizeof(int*));
+
+        for (int j = 0; j < n; j++) {
+            matrix[i][j] = malloc(n * sizeof(int));
+
+            for (int k = 0; k < n; k++) {
+                matrix[i][j][k] = rng();
+            }
+        }
+    }
+
+    return matrix;
+}
+
+
+int*** input_3d_matrix_generator(int n) {
+    int*** matrix = malloc(n * sizeof(int**));
+
+    printf("\n");
+
+    for (int i = 0; i < n; i++) {
+        matrix[i] = malloc(n * sizeof(int*));
+
+        for (int j = 0; j < n; j++) {
+            matrix[i][j] = malloc(n * sizeof(int));
+
+            for (int k = 0; k < n; k++) {
+                printf("Element [%d][%d][%d]: ", i + 1, j + 1, k + 1);
+                scanf("%d", &matrix[i][j][k]);
+            }
+        }
+    }
+
+    return matrix;
+}
+
+
+int*** matrix_3d_starter(int *n) {
+    int generation_type;
+
+    printf("\nWhat size should the 3D matrix have?: ");
+    scanf("%d", n);
+
+    do {
+        printf("\nWould you like to create your matrix automatically or manually?");
+        printf("\n(1) Automatically / (2) Manually: ");
+        scanf("%d", &generation_type);
+
+        if (generation_type != 1 && generation_type != 2) {
+            printf("\nInvalid option! Please choose 1 or 2.\n");
+        }
+    } while (generation_type != 1 && generation_type != 2);
+
+    switch (generation_type) {
+        case 1:
+            return auto_3d_matrix_generator(*n);
+
+        case 2:
+            return input_3d_matrix_generator(*n);
+    }
+
+    return NULL;
+}
+
+
+void show_3d_matrix(int*** matrix, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("\nLayer %d:\n", i + 1);
+
+        for (int j = 0; j < n; j++) {
+            printf("(");
+
+            for (int k = 0; k < n; k++) {
+                printf("%d", matrix[i][j][k]);
+
+                if (k != n - 1) {
+                    printf("\t");
+                }
+            }
+
+            printf(")\n");
+        }
+    }
+
+    printf("\n");
+}
+
+
+void free_3d_matrix(int*** matrix, int n) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            free(matrix[i][j]);
+        }
+
+        free(matrix[i]);
+    }
+
+    free(matrix);
+}
+
+
 int* auto_array_generator(int length) {
     int* array = malloc(length * sizeof(int));
     for (int i = 0; i < length; i++) {

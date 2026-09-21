@@ -279,6 +279,43 @@ int* array_starter(int *length) {
 }
 
 
+int* bubble_sort(int* array, int n) {
+    int temp;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+                temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
+    return array;
+}
+
+
+int binary_search(int* array, int n, int target) {
+    int left = 0;
+    int right = n - 1;
+
+    while (left <= right) {
+        int middle = (left + right) / 2;
+        if (array[middle] == target) {
+            return 1;
+        }
+        if (array[middle] < target) {
+            left = middle + 1;
+        } else {
+            right = middle - 1;
+        }
+    }
+
+    return 0;
+}
+
+
 void clear_screen() {
     printf("\e[1;1H\e[2J");
 }

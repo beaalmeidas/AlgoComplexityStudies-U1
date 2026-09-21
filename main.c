@@ -75,7 +75,8 @@ int main() {
                 printf("\n| Function 5: Counting Elements Present in a Sorted Array |");
                 printf("\n+---------------------------------------------------------+\n");
 
-                //aaaaaaaaaaaa
+                count_elements_in_sorted_array();
+                back_to_menu();
 
                 break;
             case 6:

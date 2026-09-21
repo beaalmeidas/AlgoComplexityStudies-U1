@@ -19,6 +19,9 @@ int* input_array_generator(int length);
 void show_array(int* array, int length);
 int* array_starter(int *length);
 
+int* bubble_sort(int* array, int n);
+int binary_search(int* array, int n, int target);
+
 void clear_screen();
 void back_to_menu();
 

@@ -154,3 +154,39 @@ void process_array() {
 
     free(V);
 }
+
+
+//FUNCTION 5
+void count_elements_in_sorted_array() {
+    int n;
+    int count = 0;
+
+    printf("\n--- Creating array A --- ");
+    int* A = array_starter(&n);
+    show_array(A, n);
+
+    printf("\n--- Creating array B --- ");
+    int* B = array_starter(&n);
+    show_array(B, n);
+    printf("\n");
+    printf("\n--- Sorted array B --- ");
+    bubble_sort(B, n);
+    show_array(B, n);
+
+    for (int i = 0; i < n; i++) {
+
+    if (binary_search(B, n, A[i])) {
+        count++;
+        }
+    }
+
+    printf("\n--- FUNCTION 5 ANSWER ---");
+    printf("\nNumber of elements from A found in B:");
+    printf("\n+--------------------------+");
+    printf("\n| %d            ", count);
+    printf("\n+--------------------------+\n");
+    printf("\n");
+
+    free(A);
+    free(B);
+}

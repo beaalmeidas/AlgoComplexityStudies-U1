@@ -4,9 +4,8 @@
 #include <conio.h>
 
 
-int rng() {
-    int random_num = rand() % 100;
-    return random_num;
+int rng(int max) {
+    return rand() % max;
 }
 
 
@@ -16,7 +15,7 @@ int** auto_matrix_generator(int rows, int columns) {
         matrix[i] = malloc(columns * sizeof(int));
 
         for (int j = 0; j < columns; j++) {
-            matrix[i][j] = rng();
+            matrix[i][j] = rng(100);
         }
     }
 
@@ -123,7 +122,7 @@ int*** auto_3d_matrix_generator(int n) {
             matrix[i][j] = malloc(n * sizeof(int));
 
             for (int k = 0; k < n; k++) {
-                matrix[i][j][k] = rng();
+                matrix[i][j][k] = rng(100);
             }
         }
     }
@@ -221,7 +220,7 @@ void free_3d_matrix(int*** matrix, int n) {
 int* auto_array_generator(int length) {
     int* array = malloc(length * sizeof(int));
     for (int i = 0; i < length; i++) {
-        array[i] = rng();
+        array[i] = rng(10);
     }
 
     return array;

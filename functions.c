@@ -58,6 +58,10 @@ void matrix_pair_analysis() {
     printf("\n+--------------------------+\n");
     printf("\n");
 
+    for (int i = 0; i < n; i++) {
+        free(matrix[i]);
+    }
+
     free(matrix);
 }
 
@@ -116,4 +120,37 @@ void matrices_comparison() {
 
     free_3d_matrix(A, n);
     free_3d_matrix(B, n);
+}
+
+
+//FUNCTION 4
+void process_array() {
+    int n;
+    int sum = 0;
+
+    int* V = array_starter(&n);
+    show_array(V, n);
+
+    for (int i = 0; i < n; i++) {
+        if (V[i] % 2 == 0) {
+            sum += V[i];
+        } else {
+            int factorial = 1;
+
+            for (int j = 1; j <= V[i]; j++) {
+                factorial *= j;
+            }
+
+            sum += factorial;
+        }
+    }
+
+    printf("\n--- FUNCTION 4 ANSWER ---");
+    printf("\nSum of elements in the array acoording to (if element % 2 == 0, sum += element) && (element % 2 != 0, sum += factorial(element)):");
+    printf("\n+--------------------------+");
+    printf("\n| %d            ", sum);
+    printf("\n+--------------------------+\n");
+    printf("\n");
+
+    free(V);
 }

@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "functions.h"
 #include "utils.h"
+#include "time.h"
 
 
 int main() {
@@ -63,7 +65,8 @@ int main() {
                 printf("\n| Function 4: Analysis of Asymmetric Cases in Conditional Statements |");
                 printf("\n+--------------------------------------------------------------------+\n");
 
-                //aaaaaaaaaaaa
+                process_array();
+                back_to_menu();
 
                 break;
             case 5:

@@ -63,6 +63,57 @@ void matrix_pair_analysis() {
 
 
 //FUNCTION 3
-void matrixes_comparison() {
-    
+void matrices_comparison() {
+    int n, answer;
+    int sum_a = 0;
+    int sum_b = 0;
+
+    printf("\n--- Creating matrix A --- ");
+    int*** A = matrix_3d_starter(&n);
+    printf("\nMATRIX A = ");
+    show_3d_matrix(A, n);
+    printf("\n");
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                sum_a += A[i][j][k];
+            }
+        }
+    }
+
+    printf("Sum of all elements in matrix A = %d", sum_a);
+    printf("\n");
+
+    printf("\n--- Creating matrix B --- ");
+    int*** B = matrix_3d_starter(&n);
+    printf("\nMATRIX B = ");
+    show_3d_matrix(B, n);
+    printf("\n");
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                sum_b += B[i][j][k];
+            }
+        }
+    }
+
+    printf("Sum of all elements in matrix B = %d", sum_b);
+    printf("\n");
+
+    if (sum_a >= sum_b) {
+        answer = 1;
+    } else {
+        answer = 0;
+    }
+
+    printf("\n--- FUNCTION 3 ANSWER ---");
+    printf("\n+--------------------------+");
+    printf("\n| %d          ", answer);
+    printf("\n+--------------------------+\n");
+    printf("\n");
+
+    free_3d_matrix(A, n);
+    free_3d_matrix(B, n);
 }

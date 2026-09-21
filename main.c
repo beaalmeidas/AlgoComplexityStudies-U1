@@ -4,6 +4,7 @@
 
 
 int main() {
+    srand(time(NULL));
     int choice;
 
     do {
@@ -52,7 +53,8 @@ int main() {
                 printf("\n| Function 3: Three-Dimensional Matrices Comparison |");
                 printf("\n+---------------------------------------------------+\n");
 
-                //aaaaaaaaaaaa
+                matrices_comparison();
+                back_to_menu();
 
                 break;
             case 4:

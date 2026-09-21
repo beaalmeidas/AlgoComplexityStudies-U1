@@ -295,6 +295,7 @@ void back_to_menu() {
 // int main() {
 //     srand(time(NULL));
 //     int rows, columns, length;
+//     int n;
 
 //     // int num = rng();
 //     // printf("\n\nGenerated random number = %d\n\n", num);
@@ -308,8 +309,11 @@ void back_to_menu() {
 //     // int** matrix = matrix_starter(&rows, &columns);
 //     // show_matrix(matrix, rows, columns);
 
-//     int* array = array_starter(&length);
-//     show_array(array, length);
+//     // int* array = array_starter(&length);
+//     // show_array(array, length);
 
-//     free();
+//     // free();
+
+//     int*** matrix_3d = matrix_3d_starter(&n);
+//     show_3d_matrix(matrix_3d, n);
 // }

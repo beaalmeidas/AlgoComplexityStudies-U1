@@ -15,6 +15,14 @@ int main() {
         printf(" ||                   FUNCTIONS MENU                   ||\n");
         printf(" ||      (Algorithms Computability and Complexity)     ||\n");
         printf("  \\====================================================/\n");
+
+        printf("\nAuthors:\n");
+        printf("Beatriz Almeida de Souza Silva\n");
+        printf("Jose Carlos de Oliveira Neto\n");
+        printf("Rigel Sales de Souza\n");
+        printf("Gabriel Bianchini Carvalho\n");
+        printf("Lucas Amorim Pontes Sousa Lima\n");
+
         printf("\n\t\t     Select a function to try!\t\t");
         printf("\n------------------------------------------------------------------");
         printf("\n(1) Function 1: Counting Distinct Occurrences");

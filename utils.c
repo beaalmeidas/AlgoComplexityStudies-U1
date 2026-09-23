@@ -326,30 +326,3 @@ void back_to_menu() {
     _getch();
     clear_screen();
 }
-
-
-// int main() {
-//     srand(time(NULL));
-//     int rows, columns, length;
-//     int n;
-
-//     // int num = rng();
-//     // printf("\n\nGenerated random number = %d\n\n", num);
-
-//     // int ** matrix = auto_matrix_generator(&rows, &columns);
-//     // show_matrix(matrix, rows, columns);
-
-//     // int * array = auto_array_generator(&length);
-//     // show_array(array, length);
-
-//     // int** matrix = matrix_starter(&rows, &columns);
-//     // show_matrix(matrix, rows, columns);
-
-//     // int* array = array_starter(&length);
-//     // show_array(array, length);
-
-//     // free();
-
-//     int*** matrix_3d = matrix_3d_starter(&n);
-//     show_3d_matrix(matrix_3d, n);
-// }
